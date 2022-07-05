@@ -1,0 +1,23 @@
+server:
+  port: 14580
+spring:
+  # 线程池配置
+  thread-pool:
+    default:
+      corePoolSize: 8
+      maximumPoolSize: 12
+      keepAliveTime: 3500
+      queueCapacity: 1024000
+
+  queue:
+    queueCapacity: 1024000
+
+  log-event:
+    #    毫秒
+    survivalTime: 600000
+logging:
+  pattern:
+    console: level-%level-%d{yyyy-MM-dd HH:mm:ss.SSS}-%class-%method  【%msg】%n
+  #    console: -%d{HH:mm:ss.SSS} %-5level %logger %class %method  %msg%n
+  level:
+    com.zly.testcenter: info
