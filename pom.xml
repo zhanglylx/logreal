@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>org.zly</groupId>
-            <artifactId>zly-test-automation-frameworks</artifactId>
+            <artifactId>org-zly-utils</artifactId>
             <version>[1.0.0,)</version>
         </dependency>
     </dependencies>
