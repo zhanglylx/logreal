@@ -103,7 +103,8 @@ public class LogServiceImpl implements LogService {
                 logEvent.setSurvivalTime(System.currentTimeMillis());
                 JSONArray jsonArray = new JSONArray();
                 while (queue.size() > 0) {
-                    jsonArray.add(queue.poll());
+//                    jsonArray.add(queue.poll());
+                    jsonArray.add("测试");
                 }
                 return new BaseResultFactoryImpl<JSONArray>().createSuccess(jsonArray);
             }
