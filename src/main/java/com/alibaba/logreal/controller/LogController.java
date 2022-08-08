@@ -44,8 +44,8 @@ public class LogController {
     }
 
     @RequestMapping(value = "/getContent", produces = "application/json;charset=utf-8")
-    public BaseResult<List<String>> getContent(String key) {
-        if (StringUtils.isEmpty(key)) return new BaseResultFactoryImpl<List<String>>().createErrorParameter(key);
+    public BaseResult<List<Object>> getContent(String key) {
+        if (StringUtils.isEmpty(key)) return new BaseResultFactoryImpl<List<Object>>().createErrorParameter(key);
         return logService.getContentHandler(key);
     }
 

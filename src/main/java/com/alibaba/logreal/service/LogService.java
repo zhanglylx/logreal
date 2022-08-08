@@ -18,5 +18,5 @@ public interface LogService {
 
     BaseResult<Object> getKeyHandler(LogKeyRequestDTO baseRequestDTO);
 
-    BaseResult<List<String>> getContentHandler(String key);
+    BaseResult<List<Object>> getContentHandler(String key);
 }

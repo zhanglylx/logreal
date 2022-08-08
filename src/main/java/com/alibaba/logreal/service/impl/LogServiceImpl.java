@@ -94,19 +94,19 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
-    public BaseResult<List<String>> getContentHandler(String key) {
+    public BaseResult<List<Object>> getContentHandler(String key) {
         LogEvent logEvent = this.logsMap.get(key);
         if (logEvent != null) {
             Queue<String> queue = logEvent.getQueue();
             if (queue != null) {
                 logEvent.setSurvivalTime(System.currentTimeMillis());
-                List<String> list = new ArrayList<>();
+                List<Object> list = new ArrayList<>();
                 while (queue.size() > 0) {
                     list.add(queue.poll());
                 }
-                return new BaseResultFactoryImpl<List<String>>().createSuccess(list);
+                return new BaseResultFactoryImpl<List<Object>>().createSuccess(list);
             }
         }
-        return new BaseResultFactoryImpl<List<String>>().createErrorCommon("资源不存在");
+        return new BaseResultFactoryImpl<List<Object>>().createErrorCommon("资源不存在");
     }
 }
