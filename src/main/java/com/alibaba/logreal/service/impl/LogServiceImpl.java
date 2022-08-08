@@ -1,5 +1,6 @@
 package com.alibaba.logreal.service.impl;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.logreal.common.result.HttpCodeEnum;
 import com.alibaba.logreal.common.result.Result;
 import com.alibaba.logreal.common.utils.RandomUtils;
@@ -94,19 +95,19 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
-    public BaseResult<List<Object>> getContentHandler(String key) {
+    public BaseResult<JSONArray> getContentHandler(String key) {
         LogEvent logEvent = this.logsMap.get(key);
         if (logEvent != null) {
             Queue<String> queue = logEvent.getQueue();
             if (queue != null) {
                 logEvent.setSurvivalTime(System.currentTimeMillis());
-                List<Object> list = new ArrayList<>();
+                JSONArray jsonArray = new JSONArray();
                 while (queue.size() > 0) {
-                    list.add(queue.poll());
+                    jsonArray.add(queue.poll());
                 }
-                return new BaseResultFactoryImpl<List<Object>>().createSuccess(list);
+                return new BaseResultFactoryImpl<JSONArray>().createSuccess(jsonArray);
             }
         }
-        return new BaseResultFactoryImpl<List<Object>>().createErrorCommon("资源不存在");
+        return new BaseResultFactoryImpl<JSONArray>().createErrorCommon("资源不存在");
     }
 }

@@ -1,5 +1,6 @@
 package com.alibaba.logreal.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.logreal.common.result.HttpCodeEnum;
 import com.alibaba.logreal.common.result.Result;
 import com.alibaba.logreal.controller.dto.LogKeyRequestDTO;
@@ -44,8 +45,8 @@ public class LogController {
     }
 
     @RequestMapping(value = "/getContent", produces = "application/json;charset=utf-8")
-    public BaseResult<List<Object>> getContent(String key) {
-        if (StringUtils.isEmpty(key)) return new BaseResultFactoryImpl<List<Object>>().createErrorParameter(key);
+    public BaseResult<JSONArray> getContent(String key) {
+        if (StringUtils.isEmpty(key)) return new BaseResultFactoryImpl<JSONArray>().createErrorParameter(key);
         return logService.getContentHandler(key);
     }
 

@@ -1,5 +1,6 @@
 package com.alibaba.logreal.service;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.logreal.common.result.Result;
 import com.alibaba.logreal.controller.dto.LogKeyRequestDTO;
 import com.alibaba.logreal.controller.dto.LogRequestDTO;
@@ -18,5 +19,5 @@ public interface LogService {
 
     BaseResult<Object> getKeyHandler(LogKeyRequestDTO baseRequestDTO);
 
-    BaseResult<List<Object>> getContentHandler(String key);
+    BaseResult<JSONArray> getContentHandler(String key);
 }
